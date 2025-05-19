@@ -1,3 +1,12 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@plugin "daisyui" {
+	/* themes: light --default, dark --prefersdark, dark; */
+	themes: all;
+}
+
+.container { @apply max-w-5xl mx-auto px-4; }
+
+.bg-odd-even { @apply bg-base-100 even:bg-base-300; }
