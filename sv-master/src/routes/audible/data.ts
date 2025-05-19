@@ -1,6 +1,6 @@
 import masterJson from './master.json';
 
-interface CategoryDS {
+export interface BookCategoryDS {
 	data: {
 		bestsellers: {
 			asin: string;
@@ -34,8 +34,8 @@ interface CategoryDS {
 	average?: number;
 };
 
-export function getCategories(): CategoryDS[] {
-	const categories: CategoryDS[] = masterJson.categories;
+export function getCategories(): BookCategoryDS[] {
+	const categories: BookCategoryDS[] = masterJson.categories;
 	for (const cat of categories) {
 		const total = cat.data.bestsellers.reduce((t, a) => t + a.minutes, 0);
 		cat.average = Math.floor(total / cat.data.bestsellers.length);
