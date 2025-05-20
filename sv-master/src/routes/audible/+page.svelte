@@ -23,7 +23,7 @@
 			subtitle="for Top 30 Audiobooks from each genre"
 			scale={maxAverage} />
 
-		<section class="">
+		<section class="px-2">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}
@@ -78,7 +78,7 @@
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxLongest} />
 
-		<section class="">
+		<section class="px-2">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}
@@ -96,7 +96,7 @@
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxShortest} />
 
-		<section class="">
+		<section class="px-2">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}

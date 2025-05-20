@@ -17,10 +17,10 @@ import type { BookCategoryDS } from "./data";
 </script>
 
 <section class="add-bottom-border" {id}>
-	<section class="max-w-5xl mx-auto px-4 py-8">
+	<section class="container-bg px-4 py-8">
 		<AudibleHeader title={cat.title} subtitle="List of Audiobooks considered" />
 
-		<section class="overflow-x-scroll">
+		<section class="overflow-x-auto">
 			<table class="table">
 				<thead>
 					<tr>
