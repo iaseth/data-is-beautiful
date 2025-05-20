@@ -39,6 +39,7 @@ export function getCategories(): BookCategoryDS[] {
 	for (const cat of categories) {
 		const total = cat.data.bestsellers.reduce((t, a) => t + a.minutes, 0);
 		cat.average = Math.floor(total / cat.data.bestsellers.length);
+		cat.data.bestsellers = cat.data.bestsellers.sort((a,b) => b.minutes - a.minutes);
 	}
 	categories.sort((a, b) => (b.average ?? 0) - (a.average ?? 0));
 	return categories;

@@ -1,0 +1,61 @@
+
+<script lang="ts">
+	import { getTailwindBgClass } from "./colors";
+	import type { BookCategoryDS } from "./data";
+
+	interface Props {
+		cat: BookCategoryDS;
+		max: number,
+	}
+	let { cat, max }: Props = $props();
+	const bestsellers = $derived(cat.data.bestsellers);
+	let showCount = $state(5);
+
+	const showMore = () => showCount += 5;
+	const showLess = () => showCount -= 5;
+</script>
+
+<section class="bg-odd-even">
+	<section class="max-w-5xl mx-auto px-4 py-8">
+		<header class="prose text-center mx-auto py-16">
+			<h2>{cat.title}</h2>
+			<p class="-mt-4">List of Audiobooks considered</p>
+		</header>
+
+		<section>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Book</th>
+						<th>Author</th>
+						<th>Narrator</th>
+						<th>Length</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{#each bestsellers.slice(0, showCount) as book, i}
+						<tr>
+							<td>{i+1}</td>
+							<td>{book.title}</td>
+							<td>{book.author}</td>
+							<td>{book.narrated_by}</td>
+							<td>{book.length}</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</section>
+
+		<footer class="text-center py-12">
+			{#if showCount > 5}
+				<button class="btn" onclick={showLess}>Show Less</button>
+			{/if}
+
+			{#if showCount < bestsellers.length}
+				<button class="btn" onclick={showMore}>Show More</button>
+			{/if}
+		</footer>
+	</section>
+</section>

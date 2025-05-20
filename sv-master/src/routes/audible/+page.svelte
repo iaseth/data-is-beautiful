@@ -1,6 +1,7 @@
 
 <script lang="ts">
-	import BookCategory from "./BookCategory.svelte";
+	import BookCategoryBar from "./BookCategoryBar.svelte";
+	import BookCategoryFull from "./BookCategoryFull.svelte";
 	import { getCategories } from "./data";
 
 	const cats = getCategories();
@@ -11,15 +12,21 @@
 	<title>Audible Insights</title>
 </svelte:head>
 
-<section class="font-mono">
-	<section class="max-w-3xl mx-auto px-2 py-24">
-		<header class="prose text-center mx-auto">
+<section class="bg-odd-even font-mono">
+	<section class="max-w-3xl mx-auto py-8 pb-20">
+		<header class="prose text-center mx-auto px-4 py-12">
 			<h2>Average Duration</h2>
-			<p>for Top 30 Audiobooks from each genre</p>
+			<p class="-mt-4">for Top 30 Audiobooks from each genre</p>
 		</header>
 
-		{#each cats as cat}
-			<BookCategory {cat} {max} />
-		{/each}
+		<section class="px-2">
+			{#each cats as cat}
+				<BookCategoryBar {cat} {max} />
+			{/each}
+		</section>
 	</section>
 </section>
+
+{#each cats as cat}
+	<BookCategoryFull {cat} {max} />
+{/each}
