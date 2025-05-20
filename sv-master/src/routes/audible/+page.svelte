@@ -7,6 +7,7 @@
 	import AudibleHeader from "./AudibleHeader.svelte";
 	import { toGoodId } from "$lib/utils";
 	import Section from "$lib/components/Section.svelte";
+	import TableOfContents from "$lib/components/TableOfContents.svelte";
 
 	const cats = getCategories();
 	const maxAverage = Math.max(...cats.map(c => c.average ?? 0));
@@ -17,6 +18,8 @@
 <svelte:head>
 	<title>Audible Insights</title>
 </svelte:head>
+
+<TableOfContents />
 
 <Section class="font-mono" id="main" container="container py-8 pb-20">
 	<AudibleHeader title="Average Duration"

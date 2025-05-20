@@ -11,8 +11,8 @@
 	let { id, container, children, ...props }: Props = $props();
 </script>
 
-<section class={["add-top-border", props.class]} {id}>
-	<section class={container}>
+<section class={["toc-section bg-odd-even", props.class]} {id}>
+	<section class={["mx-auto", container]}>
 		{@render children()}
 	</section>
 </section>

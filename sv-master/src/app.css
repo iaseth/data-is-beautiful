@@ -13,6 +13,4 @@
 
 .container-bg { @apply max-w-5xl mx-auto; }
 
-.bg-odd-even { @apply bg-base-100 even:bg-base-300; }
-
-.add-top-border { @apply border-b-2 border-rose-600; }
+.bg-odd-even { @apply bg-base-100 even:bg-base-200; }
