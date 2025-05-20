@@ -5,6 +5,7 @@
 	import { getCategories } from "./data";
 	import { getTailwindBgClass } from "./colors";
 	import AudibleHeader from "./AudibleHeader.svelte";
+	import { toGoodId } from "$lib/utils";
 
 	const cats = getCategories();
 	const maxAverage = Math.max(...cats.map(c => c.average ?? 0));
@@ -17,7 +18,7 @@
 </svelte:head>
 
 <section class="add-bottom-border font-mono">
-	<section class="max-w-3xl mx-auto py-8 pb-20">
+	<section class="container py-8 pb-20">
 		<AudibleHeader title="Average Duration"
 			subtitle="for Top 30 Audiobooks from each genre"
 			scale={maxAverage} />
@@ -34,7 +35,7 @@
 </section>
 
 <section class="add-bottom-border font-mono">
-	<section class="max-w-3xl mx-auto py-8 pb-20">
+	<section class="container py-8 pb-20">
 		<AudibleHeader title="Summary"
 			subtitle="for Top 30 Audiobooks from each genre" />
 
@@ -53,9 +54,11 @@
 					{#each cats as cat, i}
 						<tr>
 							<td>{i+1}</td>
-							<td class="flex">
-								<div class={["size-4 mr-2 rounded", getTailwindBgClass(cat.title)]}></div>
-								<div>{cat.title}</div>
+							<td>
+								<a class="flex items-center link" href={`#${toGoodId(cat.title)}`}>
+									<div class={["p-2.5 mr-2.5 rounded", getTailwindBgClass(cat.title)]}></div>
+									<div>{cat.title}</div>
+								</a>
 							</td>
 							<td>{cat.average ?? 0}</td>
 							<td>{cat.data.bestsellers[0].minutes}</td>
@@ -70,7 +73,7 @@
 
 
 <section class="add-bottom-border font-mono">
-	<section class="max-w-3xl mx-auto py-8 pb-20">
+	<section class="container py-8 pb-20">
 		<AudibleHeader title="Longest Audiobooks"
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxLongest} />
@@ -88,7 +91,7 @@
 </section>
 
 <section class="add-bottom-border font-mono">
-	<section class="max-w-3xl mx-auto py-8 pb-20">
+	<section class="container py-8 pb-20">
 		<AudibleHeader title="Shortest Audiobooks"
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxShortest} />
@@ -106,5 +109,5 @@
 </section>
 
 {#each cats as cat}
-	<BookCategoryFull {cat} max={maxAverage} />
+	<BookCategoryFull {cat} max={maxAverage} id={toGoodId(cat.title)} />
 {/each}

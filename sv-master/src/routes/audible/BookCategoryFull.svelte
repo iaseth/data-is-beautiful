@@ -5,9 +5,10 @@ import type { BookCategoryDS } from "./data";
 
 	interface Props {
 		cat: BookCategoryDS;
-		max: number,
+		max: number;
+		id: string;
 	}
-	let { cat, max }: Props = $props();
+	let { cat, max, id }: Props = $props();
 	const bestsellers = $derived(cat.data.bestsellers);
 	let showCount = $state(5);
 
@@ -15,7 +16,7 @@ import type { BookCategoryDS } from "./data";
 	const showLess = () => showCount -= 5;
 </script>
 
-<section class="add-bottom-border">
+<section class="add-bottom-border" {id}>
 	<section class="max-w-5xl mx-auto px-4 py-8">
 		<AudibleHeader title={cat.title} subtitle="List of Audiobooks considered" />
 
