@@ -35,6 +35,42 @@
 
 <section class="add-bottom-border font-mono">
 	<section class="max-w-3xl mx-auto py-8 pb-20">
+		<AudibleHeader title="Summary"
+			subtitle="for Top 30 Audiobooks from each genre" />
+
+		<section class="px-4">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>Genre</td>
+						<td>Average</td>
+						<td>Longest</td>
+						<td>Shortest</td>
+					</tr>
+				</thead>
+				<tbody>
+					{#each cats as cat, i}
+						<tr>
+							<td>{i+1}</td>
+							<td class="flex">
+								<div class={["size-4 mr-2 rounded", getTailwindBgClass(cat.title)]}></div>
+								<div>{cat.title}</div>
+							</td>
+							<td>{cat.average ?? 0}</td>
+							<td>{cat.data.bestsellers[0].minutes}</td>
+							<td>{cat.data.bestsellers.at(-1)?.minutes ?? 0}</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</section>
+	</section>
+</section>
+
+
+<section class="add-bottom-border font-mono">
+	<section class="max-w-3xl mx-auto py-8 pb-20">
 		<AudibleHeader title="Longest Audiobooks"
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxLongest} />
