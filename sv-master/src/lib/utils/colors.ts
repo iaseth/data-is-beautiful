@@ -9,6 +9,14 @@ const tailwindBgClasses = [
 	"bg-zinc-500", "bg-slate-500"
 ];
 
+const tailwindTextClasses = [
+	"text-red-500", "text-orange-500", "text-amber-500", "text-yellow-500", "text-lime-500",
+	"text-green-500", "text-emerald-500", "text-teal-500", "text-cyan-500", "text-sky-500",
+	"text-blue-500", "text-indigo-500", "text-violet-500", "text-purple-500", "text-fuchsia-500",
+	"text-pink-500", "text-rose-500", "text-neutral-500", "text-stone-500", "text-gray-500",
+	"text-zinc-500", "text-slate-500"
+];
+
 // Simple hash function to convert string to a number
 function hashString(str: string): number {
 	let hash = 0;
@@ -23,4 +31,10 @@ function hashString(str: string): number {
 export function getTailwindBgClass(text: string): string {
 	const hash = hashString(text);
 	return tailwindBgClasses[hash % tailwindBgClasses.length];
+}
+
+// Returns a consistent Tailwind class string
+export function getTailwindTextClass(text: string): string {
+	const hash = hashString(text);
+	return tailwindTextClasses[hash % tailwindTextClasses.length];
 }

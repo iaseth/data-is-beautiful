@@ -1,6 +1,7 @@
 
 <script lang="ts">
 	import Section from "$lib/components/Section.svelte";
+	import { getTailwindTextClass } from "$lib/utils/colors";
 	import AudibleHeader from "./AudibleHeader.svelte";
 	import type { BookCategoryDS } from "./data";
 
@@ -11,8 +12,9 @@
 	}
 	let { cat, id }: Props = $props();
 	const bestsellers = $derived(cat.data.bestsellers);
-	let showCount = $state(5);
+	const textClass = $derived(getTailwindTextClass(cat.title));
 
+	let showCount = $state(5);
 	const showMore = () => showCount += 5;
 	const showLess = () => showCount -= 5;
 </script>
@@ -36,7 +38,7 @@
 				{#each bestsellers.slice(0, showCount) as book, i}
 					<tr>
 						<td>{i+1}</td>
-						<td>{book.title}</td>
+						<td class={textClass}>{book.title}</td>
 						<td>{book.author}</td>
 						<td>{book.narrated_by}</td>
 						<td>{book.length}</td>
