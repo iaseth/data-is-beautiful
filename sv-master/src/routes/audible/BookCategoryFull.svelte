@@ -19,7 +19,7 @@ import type { BookCategoryDS } from "./data";
 	<section class="max-w-5xl mx-auto px-4 py-8">
 		<AudibleHeader title={cat.title} subtitle="List of Audiobooks considered" />
 
-		<section>
+		<section class="overflow-x-scroll">
 			<table class="table">
 				<thead>
 					<tr>

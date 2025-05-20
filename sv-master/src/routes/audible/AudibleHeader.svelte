@@ -10,8 +10,8 @@
 
 <header class="prose text-center mx-auto px-4 py-12">
 	<h2>{title}</h2>
-	<p class="-mt-2">{subtitle}</p>
+	<p class="text-sm">{subtitle}</p>
 	{#if scale}
-		<h5 class="-mt-2">Scale = {scale} minutes</h5>
+		<p class="-mt-2 text-sm">Scale = {scale} minutes</p>
 	{/if}
 </header>

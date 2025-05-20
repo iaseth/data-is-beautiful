@@ -22,7 +22,7 @@
 			subtitle="for Top 30 Audiobooks from each genre"
 			scale={maxAverage} />
 
-		<section class="px-2">
+		<section class="">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}
@@ -38,7 +38,7 @@
 		<AudibleHeader title="Summary"
 			subtitle="for Top 30 Audiobooks from each genre" />
 
-		<section class="px-4">
+		<section class="px-4 overflow-x-scroll">
 			<table class="table">
 				<thead>
 					<tr>
@@ -75,7 +75,7 @@
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxLongest} />
 
-		<section class="px-2">
+		<section class="">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}
@@ -93,7 +93,7 @@
 			subtitle="Among Top 30 Audiobooks from each genre"
 			scale={maxShortest} />
 
-		<section class="px-2">
+		<section class="">
 			{#each cats as cat}
 				<LengthBar title={cat.title}
 					color={getTailwindBgClass(cat.title)}
