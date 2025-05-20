@@ -3,7 +3,7 @@
 	import LengthBar from "./LengthBar.svelte";
 	import BookCategoryFull from "./BookCategoryFull.svelte";
 	import { getCategories } from "./data";
-	import { getTailwindBgClass } from "./colors";
+	import { getTailwindBgClass } from "$lib/utils/colors";
 	import AudibleHeader from "./AudibleHeader.svelte";
 	import { toGoodId } from "$lib/utils";
 
