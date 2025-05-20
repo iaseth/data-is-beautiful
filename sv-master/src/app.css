@@ -7,6 +7,10 @@
 	themes: all;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .container-sm { @apply max-w-xl mx-auto; }
 
 .container { @apply max-w-3xl mx-auto; }

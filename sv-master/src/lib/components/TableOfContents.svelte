@@ -21,7 +21,7 @@
 	<header class="prose mx-auto">
 		<h2>Table of Contents</h2>
 	</header>
-	<ul class="list-disc space-y-2 py-8">
+	<ul class="list-disc list-inside space-y-2.5 py-8">
 		{#each sections as section}
 			<li class="">
 				<a class="link" href={`#${section.id}`}>{section.id}</a>
