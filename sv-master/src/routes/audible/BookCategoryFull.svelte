@@ -1,7 +1,7 @@
 
 <script lang="ts">
-	import { getTailwindBgClass } from "./colors";
-	import type { BookCategoryDS } from "./data";
+	import AudibleHeader from "./AudibleHeader.svelte";
+import type { BookCategoryDS } from "./data";
 
 	interface Props {
 		cat: BookCategoryDS;
@@ -15,12 +15,9 @@
 	const showLess = () => showCount -= 5;
 </script>
 
-<section class="bg-odd-even">
+<section class="add-bottom-border">
 	<section class="max-w-5xl mx-auto px-4 py-8">
-		<header class="prose text-center mx-auto py-16">
-			<h2>{cat.title}</h2>
-			<p class="-mt-4">List of Audiobooks considered</p>
-		</header>
+		<AudibleHeader title={cat.title} subtitle="List of Audiobooks considered" />
 
 		<section>
 			<table class="table">

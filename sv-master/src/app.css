@@ -10,3 +10,5 @@
 .container { @apply max-w-5xl mx-auto px-4; }
 
 .bg-odd-even { @apply bg-base-100 even:bg-base-300; }
+
+.add-bottom-border { @apply border-b-2 border-rose-600; }
